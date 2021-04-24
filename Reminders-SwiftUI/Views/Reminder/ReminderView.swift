@@ -9,13 +9,18 @@ import SwiftUI
 
 struct RemindersView: View {
   @State var isShowingCreateModal: Bool = false
+  let fetchRequest = Reminder.basicFetchRequest()
+  
+  var reminders: FetchedResults<Reminder> {
+    fetchRequest.wrappedValue
+  }
   
   var body: some View {
     VStack {
       List {
         Section {
-          ForEach(1...10, id: \.self) { _ in
-            Text("Test")
+          ForEach(reminders, id: \.self) { reminder in
+            ReminderRow(reminder: reminder)
           }
         }
       }
