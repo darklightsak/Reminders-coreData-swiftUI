@@ -46,7 +46,16 @@ extension Reminder {
   static func fetchRequestSortedByTitleAndPriority() -> FetchRequest<Reminder> {
     let titleSortDescriptor = NSSortDescriptor(key: "title", ascending: true)
     let prioritySortDescriptor = NSSortDescriptor(key: "priority", ascending: false)
-    
     return FetchRequest(entity: Reminder.entity(), sortDescriptors: [titleSortDescriptor, prioritySortDescriptor])
+  }
+  
+  static func completedRemidersFetchRequest() -> FetchRequest<Reminder> {
+    let titleSortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+    let prioritySortDescriptor = NSSortDescriptor(key: "priority", ascending: false)
+    let isCompletedPredicate = NSPredicate(format: "%K == %@", "isCompleted", NSNumber(value: false))
+    
+    return FetchRequest(entity: Reminder.entity(),
+                        sortDescriptors: [titleSortDescriptor, prioritySortDescriptor],
+                        predicate: isCompletedPredicate)
   }
 }
