@@ -46,6 +46,7 @@ struct CreateReminderView: View {
   @State var shouldRemind: Bool = false
   @State var dueDate = Date()
   @State var priority: ReminderPriority = .none
+  @State var tags: String = ""
   
   var body: some View {
     NavigationView {
@@ -70,6 +71,9 @@ struct CreateReminderView: View {
           }
         }
         Section {
+          TextField("Tags", text: $tags)
+        }
+        Section {
           NavigationLink(destination: ReminderPrioritySelectionView(priority: $priority)) {
             Text("Priority")
             Spacer()
@@ -81,10 +85,15 @@ struct CreateReminderView: View {
       .navigationBarTitle(Text("Create Event"), displayMode: .inline)
       .navigationBarItems(trailing:
         Button(action: {
+          let tags = Set(self.tags.split(separator: ",").map({
+            Tag.fetchOrCreateWith(title: String($0), in: self.viewContext)
+          }))
+          
         Reminder.createWith(title: self.text,
                                 notes: self.notes,
                                 date: self.dueDate,
                                 priority: self.priority,
+                                tags: tags,
                                 in: self.reminderList,
                                 using: self.viewContext)
             

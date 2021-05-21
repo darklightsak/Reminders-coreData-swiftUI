@@ -7,13 +7,19 @@
         <attribute name="priority" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String"/>
         <relationship name="list" maxCount="1" deletionRule="Nullify" destinationEntity="ReminderList" inverseName="reminders" inverseEntity="ReminderList"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="reminders" inverseEntity="Tag"/>
     </entity>
     <entity name="ReminderList" representedClassName="ReminderList" syncable="YES">
         <attribute name="title" attributeType="String"/>
         <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Reminder" inverseName="list" inverseEntity="Reminder"/>
     </entity>
+    <entity name="Tag" representedClassName="Tag" syncable="YES">
+        <attribute name="title" attributeType="String"/>
+        <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reminder" inverseName="tags" inverseEntity="Reminder"/>
+    </entity>
     <elements>
-        <element name="Reminder" positionX="-63" positionY="-18" width="128" height="133"/>
-        <element name="ReminderList" positionX="165.7714233398438" positionY="14.12420654296875" width="128" height="73"/>
+        <element name="Reminder" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="ReminderList" positionX="-290.4199829101562" positionY="41.86907958984375" width="128" height="73"/>
+        <element name="Tag" positionX="169.9757080078125" positionY="20.89227294921875" width="128" height="73"/>
     </elements>
 </model>

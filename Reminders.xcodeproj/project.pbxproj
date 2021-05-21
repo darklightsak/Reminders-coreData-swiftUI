@@ -24,6 +24,8 @@
 		0F5903EC2634953C004F194B /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5903EB2634953C004F194B /* Reminder+CoreDataProperties.swift */; };
 		0FA1BAC7264BBC6C003D5AA1 /* ReminderList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1BAC5264BBC6C003D5AA1 /* ReminderList+CoreDataClass.swift */; };
 		0FA1BAC8264BBC6C003D5AA1 /* ReminderList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA1BAC6264BBC6C003D5AA1 /* ReminderList+CoreDataProperties.swift */; };
+		0FB45EE42657A7F00036AE04 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB45EE22657A7F00036AE04 /* Tag+CoreDataClass.swift */; };
+		0FB45EE52657A7F00036AE04 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB45EE32657A7F00036AE04 /* Tag+CoreDataProperties.swift */; };
 		0FC4859E264BC2E300B33510 /* ReminderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4859D264BC2E300B33510 /* ReminderListView.swift */; };
 		0FC485A0264BC2FA00B33510 /* ReminderListCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC4859F264BC2FA00B33510 /* ReminderListCreateView.swift */; };
 		0FC485A2264BC30D00B33510 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC485A1264BC30D00B33510 /* CircularImageView.swift */; };
@@ -49,6 +51,8 @@
 		0F5903EB2634953C004F194B /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0FA1BAC5264BBC6C003D5AA1 /* ReminderList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderList+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0FA1BAC6264BBC6C003D5AA1 /* ReminderList+CoreDataProperties.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "ReminderList+CoreDataProperties.swift"; sourceTree = "<group>"; tabWidth = 4; };
+		0FB45EE22657A7F00036AE04 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; tabWidth = 4; };
+		0FB45EE32657A7F00036AE04 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; tabWidth = 4; };
 		0FC4859D264BC2E300B33510 /* ReminderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListView.swift; sourceTree = "<group>"; };
 		0FC4859F264BC2FA00B33510 /* ReminderListCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListCreateView.swift; sourceTree = "<group>"; };
 		0FC485A1264BC30D00B33510 /* CircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				0F5903EB2634953C004F194B /* Reminder+CoreDataProperties.swift */,
 				0FA1BAC5264BBC6C003D5AA1 /* ReminderList+CoreDataClass.swift */,
 				0FA1BAC6264BBC6C003D5AA1 /* ReminderList+CoreDataProperties.swift */,
+				0FB45EE22657A7F00036AE04 /* Tag+CoreDataClass.swift */,
+				0FB45EE32657A7F00036AE04 /* Tag+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,8 +229,10 @@
 			files = (
 				0F5903CD26348EE2004F194B /* ReminderStatusView.swift in Sources */,
 				0FA1BAC8264BBC6C003D5AA1 /* ReminderList+CoreDataProperties.swift in Sources */,
+				0FB45EE52657A7F00036AE04 /* Tag+CoreDataProperties.swift in Sources */,
 				0F5903C726348EB1004F194B /* CreateReminderView.swift in Sources */,
 				0F5903A826348CA0004F194B /* AppDelegate.swift in Sources */,
+				0FB45EE42657A7F00036AE04 /* Tag+CoreDataClass.swift in Sources */,
 				0F5903DD263490E1004F194B /* Reminders.xcdatamodeld in Sources */,
 				0F5903CA26348ECC004F194B /* ReminderPrioritySelectionView.swift in Sources */,
 				0F5903AA26348CA0004F194B /* SceneDelegate.swift in Sources */,
