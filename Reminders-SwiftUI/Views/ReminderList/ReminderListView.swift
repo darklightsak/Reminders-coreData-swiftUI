@@ -17,15 +17,16 @@ extension Color {
 
 struct ReminderListView: View {
   @Environment(\.managedObjectContext) var viewContext
+  @FetchRequest(sortDescriptors: []) var reminderLists: FetchedResults<ReminderList>
   
   var body: some View {
     VStack {
       List {
         Section {
-          ForEach(1...10, id:\.self) { _ in
-            HStack {
+          ForEach(reminderLists, id:\.self) { reminderList in
+            NavigationLink(destination: RemindersView( reminderList: reminderList)) {
               CircularImageView(color: Color.random)
-              Text("ReminderList")
+              Text(reminderList.title ?? "...")
             }
           }
         }

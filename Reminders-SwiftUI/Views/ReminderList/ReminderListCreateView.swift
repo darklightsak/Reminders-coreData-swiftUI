@@ -43,7 +43,7 @@ struct ReminderListCreateView: View {
         },
         trailing: Button("Save") {
           if !self.text.isEmpty {
-            // Save Reminder List
+            ReminderList.create(withTitle: self.text, in: self.viewContext)
             self.presentationMode.wrappedValue.dismiss()
           }
         }

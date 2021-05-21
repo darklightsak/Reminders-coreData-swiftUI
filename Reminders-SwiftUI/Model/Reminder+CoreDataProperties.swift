@@ -14,17 +14,20 @@ extension Reminder {
   @NSManaged var notes: String?
   @NSManaged var dueDate: Date?
   @NSManaged var priority: Int16
+  @NSManaged var list: ReminderList
   
   static func createWith(title: String,
                          notes: String?,
                          date: Date?,
                          priority: ReminderPriority,
+                         in list: ReminderList,
                          using viewContext: NSManagedObjectContext) {
     let reminder = Reminder(context: viewContext)
     reminder.title = title
     reminder.notes = notes
     reminder.dueDate = date
     reminder.priority = priority.rawValue
+    reminder.list = list
     
     do {
       try viewContext.save()
@@ -57,5 +60,19 @@ extension Reminder {
     return FetchRequest(entity: Reminder.entity(),
                         sortDescriptors: [titleSortDescriptor, prioritySortDescriptor],
                         predicate: isCompletedPredicate)
+  }
+  
+  static func reminders(in list: ReminderList) -> FetchRequest<Reminder> {
+    let titleSortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+    let prioritySortDescriptor = NSSortDescriptor(key: "priority", ascending: false)
+    
+    let listPredicate = NSPredicate(format: "%K == %@", "list.title", list.title ?? "")
+    let isCompletedPredicate = NSPredicate(format: "%K == %@", "isCompleted", NSNumber(value: false))
+    
+    let combinedPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [listPredicate, isCompletedPredicate])
+    
+    return FetchRequest(entity: Reminder.entity(),
+                        sortDescriptors: [titleSortDescriptor, prioritySortDescriptor],
+                        predicate: combinedPredicate)
   }
 }
